@@ -63,6 +63,7 @@ header .col {
 	background-color: #f9f7ef;
 	vertical-align: top;
 	text-align: justify;
+        border: 1px solid #525252;
 }
 
 .featured
@@ -75,7 +76,39 @@ header .col {
 	text-align: center;
 	font-weight: bold;
 	padding:10px;
-	
+	border: 1px solid #525252;
 }
 
 .featured{background:#f2f0e3 url(../img/formheader-bg.jpg) repeat-x top left;font-16 red padd-0;}
+
+.tablehref {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	background-color: #FFFFCC;
+	vertical-align: middle;
+	text-align: justify;
+}
+
+.tabletext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-color: #FFFFCC;
+	text-align: justify;
+}
+
+.tabletextdisabled {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #315E95;
+	background-color: #FFFFCC;
+	text-align: justify;
+}
+.maintable {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	background-color: #FFFFCC;
+	vertical-align: top;
+}
