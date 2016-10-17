@@ -42,7 +42,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('offersCtrl', function($scope,$state,$window,$ionicPopup,$http,$ionicLoading) {
-	$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
+	//$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
 	var temp = "";
 	var data_parameters = "usertype="+temp;
 	$http.post("http://worldofsteel.com/sysdata/offermobile.php",data_parameters, {
