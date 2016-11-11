@@ -1,5 +1,5 @@
 // Ionic Starter App
-var globalip = "45.79.145.23/truhome.co/public_html/phonegapservices";
+var globalip = "http://makerits.com/worldofsteel/get_hint.php";
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -39,6 +39,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 			}
     	}
   	},100);
+	
+	//check internt connection
+	/*if(window.Connection) {
+		if(navigator.connection.type == Connection.NONE) {
+			$ionicPopup.confirm({
+				title: "Internet Disconnected",
+				content: "The internet is disconnected on your device."
+			})
+			.then(function(result) {
+				if(!result) {
+					//ionic.Platform.exitApp();
+				}
+			});
+		}
+	}*/
 	
 	//one signal code
 	var notificationOpenedCallback = function(jsonData) {
@@ -109,6 +124,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+	.state('app.offers-detail-response', {
+      url: '/offers-detail-response/:offer_refno',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/offers-detail-response.html',
+          controller: 'offers_response_Ctrl'
+        }
+      }
+    })
   .state('app.contact', {
     url: '/contact',
     views: {
@@ -132,141 +156,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent' :{
           templateUrl: "templates/emailus.html",
 		  controller: "emailCtrl"
-        }
-      }
-    })
-	
-	.state('app.learning_center', {
-      url: "/learning_center",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning_center.html"
-        }
-      }
-    })
-    
-    .state('app.packaging_steel_conversion_chart', {
-      url: "/learning/packaging_steel_conversion_chart",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/packaging_steel_conversion_chart.html"
-        }
-      }
-    })
-    
-    .state('app.thickness_conversion_chart', {
-      url: "/learning/thickness_conversion_chart",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/thickness_conversion_chart.html"
-        }
-      }
-    })
-    
-    .state('app.raw_materials_grades', {
-      url: "/learning/raw_materials_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/raw_materials_grades.html"
-        }
-      }
-    })
-    
-    .state('app.bars_shapes_and_steel_plates_grades', {
-      url: "/learning/bars_shapes_and_steel_plates_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/bars_shapes_and_steel_plates_grades.html"
-        }
-      }
-    })
-    
-    .state('app.steel_plates_and_sheets_grades', {
-      url: "/learning/steel_plates_and_sheets_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/steel_plates_and_sheets_grades.html"
-        }
-      }
-    })
-    
-    .state('app.steel_pipes_grades', {
-      url: "/learning/steel_pipes_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/steel_pipes_grades.html"
-        }
-      }
-    })
-    
-    .state('app.wire_and_wire_product_grades', {
-      url: "/learning/wire_and_wire_product_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/wire_and_wire_product_grades.html"
-        }
-      }
-    })
-    
-    .state('app.castings_and_forgings_grades', {
-      url: "/learning/castings_and_forgings_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/castings_and_forgings_grades.html"
-        }
-      }
-    })
-    
-    .state('app.what_is_wire_rod', {
-      url: "/learning/what_is_wire_rod",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/what_is_wire_rod.html"
-        }
-      }
-    })
-    
-    .state('app.anti-corrosion_materials_for_castings,_nuts_and_bolts', {
-      url: "/learning/anti-corrosion_materials_for_castings,_nuts_and_bolts",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/anti-corrosion_materials_for_castings,_nuts_and_bolts.html"
-        }
-      }
-    })
-    
-    .state('app.chinese_steel_grades', {
-      url: "/learning/chinese_steel_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/chinese_steel_grades.html"
-        }
-      }
-    })
-    
-    .state('app.coated_cold_rolled_steel_european_equivalent_grades', {
-      url: "/learning/coated_cold_rolled_steel_european_equivalent_grades",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/coated_cold_rolled_steel_european_equivalent_grades.html"
-        }
-      }
-    })
-    
-    .state('app.about_electrical_steel', {
-      url: "/learning/about_electrical_steel",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/about_electrical_steel.html"
-        }
-      }
-    })
-    
-    .state('app.electrical_steel_international_standards', {
-      url: "/learning/electrical_steel_international_standards",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/learning/electrical_steel_international_standards.html"
         }
       }
     });

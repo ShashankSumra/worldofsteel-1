@@ -3,36 +3,11 @@
     	<h4 class="text-center ">Contact Us</h4>
   	</ion-header-bar>
     <ion-content>
-    <div class="list">
-         <a class="item item-icon-left" style="white-space: normal;">
-                            <i class="icon ion-ios-location" style="color: red"></i>
-				516 / 517 Navratan, P.D. Mello Road, Carnac Bridge, Mumbai, Maharashtra 400009
-	</a>
-        <a class="item item-icon-left" href="#" onclick="window.open('https://twitter.com/worldofsteel', '_blank', 'location=no'); return false;">
-				<i class="icon ion-social-twitter" style="color: #4099ff"></i>
-				Twitter
-	</a>
-        <a class="item item-icon-left item-text-wrap" href="#" onclick="window.open('https://www.linkedin.com/company/ellias-international?trk=biz-companies-cym', '_blank', 'location=no'); return false;">
-                <i class="icon ion-social-linkedin" style="color: #0077B5"></i>
-				LinkedIn
-	</a>
-        <a class="item item-icon-left" href="#">
-				<i class="icon ion-social-skype" style="color: #00AFF0"></i>
-				Our Skype ID : worldofsteel
-	</a>
-        <a class="item item-icon-left" href="tel:+91 (22) 66317270">
-				<i class="icon ion-ios-telephone"></i>
-				+91 (22) 66317270
-	</a>
-        <a class="item item-icon-left" href="tel:+91 (22) 66317271">
-				<i class="icon ion-ios-telephone"></i>
-				+91 (22) 66317271
-	</a>
-        <a class="item item-icon-left" href="#">
-				<i class="icon ion-email"></i>
-				Email us : info@worldofsteel.com
-	</a>
-    </div>
-        <map on-create="mapCreated(map)" style="height:70%"></map>
+    <ul class="list">
+        <li><a href="#/app/getinformation" class="item item-icon-right">Get Information</a></li>
+       <!-- <li><a href="#/app/emailus" class="item item-icon-right">Email us</a></li>-->
+       	<li><a  class="item item-icon-right">Email us : info@worldofsteel.com </a></li>
+    </ul>
+    <map on-create="mapCreated(map)" style="height:70%"></map>
     </ion-content>
 </ion-view>
