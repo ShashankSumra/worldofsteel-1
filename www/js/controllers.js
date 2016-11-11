@@ -42,59 +42,33 @@ angular.module('starter.controllers', [])
 })
 
 .controller('offersCtrl', function($scope,$state,$window,$ionicPopup,$http,$ionicLoading) {
-	
-	//check internt connection
-	if(window.Connection) {
-		//if connection is not there
-		if(navigator.connection.type == Connection.NONE) {
-			if(window.localStorage.getItem("offers_offline_data") !== undefined) {
-           		$scope.response = angular.fromJson(window.localStorage.getItem("offers_offline_data"));
-        	} 
-		}
-		else{
-			// if connection is there
-			$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
-			var temp = "";
-			var data_parameters = "usertype="+temp;
-			$http.post("http://worldofsteel.com/sysdata/offermobile.php",data_parameters, {
-				headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
-			})
-			.success(function(response) {
-				console.log(response);
-				$scope.response = response;
-				window.localStorage.setItem("offers_offline_data",angular.toJson(response));
-				$ionicLoading.hide();
-			});
-		}
-	}
-	
+	$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
+	var temp = "";
+	var data_parameters = "usertype="+temp;
+	$http.post("http://worldofsteel.com/sysdata/offermobile.php",data_parameters, {
+		headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+	})
+	.success(function(response) {
+		console.log(response);
+		$scope.response = response;
+		$ionicLoading.hide();
+	});
 	
 	$scope.doRefresh = function() {
-		if(window.Connection) {
-		//if connection is not there
-			if(navigator.connection.type == Connection.NONE) {
-				if(window.localStorage.getItem("offers_offline_data") !== undefined) {
-           			$scope.response = angular.fromJson(window.localStorage.getItem("offers_offline_data"));
-					$scope.$broadcast('scroll.refreshComplete'); // to hide the spinner of pull to refresh
-        		} 
-			}
-			else{
-				// if connection is there
-				var data_parameters = "usertype="+temp;
-				$http.post("http://worldofsteel.com/sysdata/offermobile.php",data_parameters, {
-					headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
-				})
-				.success(function(response) {
-					console.log(response);
-					$scope.response = response;
-					$scope.$broadcast('scroll.refreshComplete'); // to hide the spinner of pull to refresh
-				});
-			}
-		}
-	};
+		var data_parameters = "usertype="+temp;
+		$http.post("http://worldofsteel.com/sysdata/offermobile.php",data_parameters, {
+			headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+		})
+		.success(function(response) {
+			console.log(response);
+			$scope.response = response;
+			$scope.$broadcast('scroll.refreshComplete');
+		});
+  	};
+	
 })
 
-.controller('offers_detailCtrl', function($scope,$stateParams,$http,$state) {
+.controller('offers_detailCtrl', function($scope,$stateParams,$http) {
 	$scope.origin = $stateParams.origin;
 	$scope.quantity = $stateParams.quantity;
 	$scope.thickness = $stateParams.thickness;
@@ -106,115 +80,6 @@ angular.module('starter.controllers', [])
 	$scope.classification = $stateParams.classification;
 	$scope.steel_type = $stateParams.steel_type;
 	$scope.forms = $stateParams.forms;
-	
-	$scope.sendresponse = function(value){
-		$state.go("app.offers-detail-response",{offer_refno: value});
-	}
-})
-
-
-.controller('offers_response_Ctrl', function($scope,$stateParams,$http,$state,$ionicPopup) {
-	$scope.offer_refno = $stateParams.offer_refno;
-	
-	$scope.user = {name : '',email : '',mobile : '',comment : ''};
-	
-	$scope.send_mail = function(user) {
-		if(window.Connection) {
-		//if connection is not there
-			if(navigator.connection.type == Connection.NONE) {
-				$ionicPopup.show({
-					  template: '',
-					  title: 'No Connection.....Retry',
-					  scope: $scope,
-					  buttons: [
-						{
-						  text: 'Ok',
-						  type: 'button-assertive'
-						},
-					  ]
-					})
-			}
-			else{
-				// if connection is there
-				var name = user.name;
-				var email = user.email;
-				var mobile = user.mobile;
-				var comment = user.comment;
-				var offer_refno = $stateParams.offer_refno;
-				
-				var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z\-])+\.)+([a-zA-Z]{2,4})+$/;
-				
-				if(typeof email === "undefined" || typeof name === "undefined" || email == "" || name == "" || typeof comment === "undefined" || comment == "" || offer_refno == "" || offer_refno == "undefined"){
-					$ionicPopup.show({
-					  template: '',
-					  title: 'Please fill all fields',
-					  scope: $scope,
-					  buttons: [
-						{ 
-						  text: 'Ok',
-						  type: 'button-assertive'
-						},
-					  ]
-					})
-				}
-				else
-				{
-					if(!filter.test(email)){
-						$ionicPopup.show({
-								  template: '',
-								  title: 'Please enter valid email',
-								  scope: $scope,
-								  buttons: [
-									{ 
-									  text: 'Ok',
-									  type: 'button-assertive'
-									},
-								  ]
-						})
-					}
-					else
-					{
-						var action = "send_email";
-						
-						var data_parameters = "action="+action+"&user_email="+email+ "&name="+name+ "&mobile="+mobile+ "&comment="+comment+ "&offer_refno="+offer_refno;
-						$http.post(globalip,data_parameters, {
-							headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
-						})
-						.success(function(response) {
-							if(response[0].status == "Y"){
-								$scope.user = {name : '',email : '',mobile : '',comment : ''};
-								$ionicPopup.show({
-								  template: '',
-								  title: 'Thank you for your response. Our Sales Team will contact you shortly.',
-								  scope: $scope,
-								  buttons: [
-									{
-									  text: 'Ok',
-									  type: 'button-assertive'
-									},
-								  ]
-								})
-							}
-							else{
-								$ionicPopup.show({
-								  template: '',
-								  title: 'There is some server error',
-								  scope: $scope,
-								  buttons: [
-									{
-									  text: 'Ok',
-									  type: 'button-assertive'
-									},
-								  ]
-								})
-							}
-						});
-					}
-				}
-			}
-		}
-		
-	};
 })
 
 .controller('contactCtrl', function($scope) {
