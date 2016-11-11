@@ -159,6 +159,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     });
+	.state('app.learning_center', {
+      url: "/learning_center",
+      views: {
+        'menuContent' :{
+          templateUrl: "templates/learning_center.html",
+        }
+      }
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/dashboard');
 })
