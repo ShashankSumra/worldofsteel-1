@@ -37,3 +37,79 @@ map {
 .slider {
   height: 100%;
 }
+
+header .col {
+  background-color:lightgrey;
+}
+
+.col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
+.maintext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	background-color: #f9f7ef;
+	vertical-align: top;
+	text-align: justify;
+        border: 1px solid #525252;
+}
+
+.featured
+
+{	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #eae5d2;
+	color: #b01a1a;
+	vertical-align: top;
+	text-align: center;
+	font-weight: bold;
+	padding:10px;
+	border: 1px solid #525252;
+}
+
+.featured{background:#f2f0e3 url(../img/formheader-bg.jpg) repeat-x top left;font-16 red padd-0;}
+
+.tablehref {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666666;
+	background-color: #FFFFCC;
+	vertical-align: middle;
+	text-align: justify;
+}
+
+.tabletext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+	background-color: #FFFFCC;
+	text-align: justify;
+}
+
+.tabletextdisabled {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #315E95;
+	background-color: #FFFFCC;
+	text-align: justify;
+}
+.maintable {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	background-color: #FFFFCC;
+	vertical-align: top;
+}
+>>>>>>> origin/master
