@@ -29,7 +29,7 @@
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
   <preference name="SplashScreen" value="screen"/>
-  <gap:plugin name="com.ionic.keyboard" version="1.0.3" source="pgb"/>
+  <gap:plugin name="com.ionic.keyboard" version="1.0.3" source="npm"/>
   <gap:plugin name="org.apache.cordova.statusbar"/>
   <gap:plugin name="org.apache.cordova.battery-status" version="0.2.12"/>
   <gap:plugin name="org.apache.cordova.camera" version="0.3.6"/>
