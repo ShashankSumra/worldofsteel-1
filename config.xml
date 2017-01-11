@@ -30,7 +30,7 @@
   <preference name="android-installLocation" value="auto"/>
   <preference name="SplashScreen" value="screen"/>
   <gap:plugin name="ionic-plugin-keyboard"  source="npm" version="1.0.7"/>
-  <gap:plugin name="cordova-plugin-statusbar" source="npm" version="0.1.4"/>
+  <gap:plugin name="org.apache.cordova.statusbar" source="npm" version="0.1.4"/>
   <gap:plugin name="org.apache.cordova.battery-status" version="0.2.12" source="npm"/>
   <gap:plugin name="org.apache.cordova.camera" version="0.3.6" source="npm"/>
   <gap:plugin name="org.apache.cordova.console" version="0.2.13" source="npm"/>
